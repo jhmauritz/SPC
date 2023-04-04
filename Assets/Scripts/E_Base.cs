@@ -19,9 +19,9 @@ public class E_Base : MonoBehaviour
     }
 
     private void Update() {
-        Die();
         Movement();
         RotateTowardsTarget();
+        Die();
     }
 
     private void Movement () {
@@ -51,7 +51,7 @@ public class E_Base : MonoBehaviour
         }
     }
 
-    private void Die () {
+    public void Die () {
         if(_health <= 0){
             Destroy(gameObject);
         }        
