@@ -9,13 +9,17 @@ public class P_Weapon : MonoBehaviour
         //Attack
     [SerializeField]
     private CircleCollider2D _weapCol;
+    [SerializeField]
+    private SpriteRenderer _weapSprite;
 
     public IEnumerator Attack(){
         if(_weapCol.enabled == false){
             _weapCol.enabled = true;
+            _weapSprite.enabled = true;
             Debug.Log("Col On");
             yield return new WaitForSeconds(0.1f);
             _weapCol.enabled = false;
+            _weapSprite.enabled = false;
             Debug.Log("Col Off");
         }
     }

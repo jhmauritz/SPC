@@ -27,7 +27,6 @@ public class P_Movement : MonoBehaviour
 
     private void FixedUpdate() {
         SetPlayerVelocity();
-        RotateInDirectionOfInput();
     }
 
     #region MOVEMENT
@@ -38,15 +37,6 @@ public class P_Movement : MonoBehaviour
             ref _movementInputSmoothVelocity,
             0.1f);
         rb.velocity = _smoothMovementInput * _speed;
-    }
-
-    private void RotateInDirectionOfInput () {
-        if(_movementInput != Vector2.zero){
-            Quaternion tarRot = Quaternion.LookRotation(transform.forward, _smoothMovementInput);
-            Quaternion rot = Quaternion.RotateTowards(transform.rotation, tarRot, _rotSpeed * Time.deltaTime);
-
-            rb.MoveRotation(rot);
-        }
     }
 
     private void OnMove(InputValue ip){
