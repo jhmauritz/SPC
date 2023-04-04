@@ -8,7 +8,7 @@ public class P_Weapon : MonoBehaviour
 {
         //Attack
     [SerializeField]
-    private CircleCollider2D _weapCol;
+    private BoxCollider2D _weapCol;
     [SerializeField]
     private SpriteRenderer _weapSprite;
     public Vector2 PointerPosition {get; set;}
