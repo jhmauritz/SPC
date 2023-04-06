@@ -18,6 +18,8 @@ public class P_Movement : MonoBehaviour
     private P_Weapon weap;
     [SerializeField] private Transform weapPos;
     private bool _attackInput;
+    [SerializeField]
+    private Animator _anim;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
@@ -49,7 +51,8 @@ public class P_Movement : MonoBehaviour
     private void OnAttack (InputValue ip) {
         _attackInput = ip.isPressed;
         if(ip.isPressed){
+            _anim.SetTrigger("Attack");
             StartCoroutine(weap.Attack());
         }
     }
-}
+} 

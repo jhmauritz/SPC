@@ -11,15 +11,17 @@ public class P_Weapon : MonoBehaviour
     private BoxCollider2D _weapCol;
     [SerializeField]
     private SpriteRenderer _weapSprite;
-    public Vector2 PointerPosition {get; set;}
+    private Animator _anim;
+
+    private void Awake() {
+        _anim = GetComponent<Animator>();
+    }
 
     public IEnumerator Attack(){
         if(_weapCol.enabled == false){
             _weapCol.enabled = true;
-            Debug.Log("Col On");
             yield return new WaitForSeconds(0.01f);
             _weapCol.enabled = false;
-            Debug.Log("Col Off");
         }
     }
     private void OnTriggerEnter2D(Collider2D other) {
